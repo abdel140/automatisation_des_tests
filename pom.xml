@@ -10,7 +10,7 @@
 	<!-- précisez le nom et l'email de chaque membre de votre groupe -->
 	<developers>
 		<developer>
-			<name>David Gayerie</name>
+			<name>EL OUARDI Abdelilah</name>
 			<email>VOTRE_EMAIL</email>
 		</developer>
 	</developers>
@@ -95,38 +95,60 @@
 	</dependencies>
 	<build>
 		<plugins>
-		  <plugin>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.8.5</version>
-			<executions>
-			  <execution>
-				<id>prepare-agent</id>
-				<phase>process-test-classes</phase>
-				<goals>
-				  <goal>prepare-agent</goal>
-				</goals>
-				<configuration>
-				  <encoding>UTF-8</encoding>
-				  <consoleOutput>true</consoleOutput>
-				  <failsOnError>true</failsOnError>
-				</configuration>
-			  </execution>
-			  <execution>
-				<id>test</id>
-				<phase>test</phase>
-				<goals>
-				 
-				  <goal>report</goal>
-				</goals>
-				<configuration>
-				  <encoding>UTF-8</encoding>
-				  <consoleOutput>true</consoleOutput>
-				  <failsOnError>true</failsOnError>
-				</configuration>
-			  </execution>
-			</executions>
-		  </plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.5</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<phase>process-test-classes</phase>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<encoding>UTF-8</encoding>
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+						</configuration>
+					</execution>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<encoding>UTF-8</encoding>
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+						<configuration>
+							<mode>war</mode>
+							<url>http://localhost:8080/manager/text</url>
+							<server>TomcatServer</server>
+							<path>/pizza-spring</path>
+							<username>abdel</username>
+							<password>abdel</password>
+							<update>true</update>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
-  </build>
+	</build>
 </project>
